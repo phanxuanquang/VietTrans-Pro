@@ -1,0 +1,65 @@
+<Window
+    x:Class="VietTransPro.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VietTransPro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="VietTrans Pro">
+    <Grid  Background="WhiteSmoke">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NameTextBox.Width" Value="Auto"/>
+                        <Setter Target="LevelComboBox.Width" Value="Auto"/>
+                        <Setter Target="ApiKeyTextBox.Width" Value="Auto"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NameTextBox.Width" Value="700"/>
+                        <Setter Target="LevelComboBox.Width" Value="700"/>
+                        <Setter Target="ApiKeyTextBox.Width" Value="700"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" CornerRadius="10" Padding="30" Background="White">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Spacing="20">
+                <TextBlock Text="CHÀO MỪNG" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+                <TextBox x:Name="NameTextBox" PlaceholderText="Tên của bạn" HorizontalAlignment="Stretch"/>
+
+                <ComboBox x:Name="LevelComboBox" PlaceholderText="Trình độ tiếng Anh của bạn" HorizontalAlignment="Stretch">
+                    <ComboBoxItem Content="Beginner"/>
+                    <ComboBoxItem Content="Intermediate"/>
+                    <ComboBoxItem Content="Advanced"/>
+                </ComboBox>
+
+                <TextBox x:Name="ApiKeyTextBox" PlaceholderText="Gemini API Key" HorizontalAlignment="Stretch" />
+
+                <Button Content="BẮT ĐẦU" FontWeight="SemiBold" HorizontalAlignment="Center" Style="{StaticResource AccentButtonStyle}" Click="LoginButton_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

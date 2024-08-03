@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "VietTransPro (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "VietTransPro (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
